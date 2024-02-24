@@ -150,16 +150,6 @@ class S {
     );
   }
 
-  /// `Home Screen`
-  String get Home {
-    return Intl.message(
-      'Home Screen',
-      name: 'Home',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Enter valid email `
   String get textEmptyEmail {
     return Intl.message(
