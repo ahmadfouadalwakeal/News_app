@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:ixtask/ui/main.dart';
 import 'package:ixtask/ui/responsive-ui/ui_components/InfoWidget.dart';
 import 'package:ixtask/ui/widget/Custom_Button.dart';
 
 import '../../../generated/l10n.dart';
+import '../../../local/LanguageConstants.dart';
 import '../../../local/local.dart';
 import 'package:provider/provider.dart';
 
@@ -15,6 +17,11 @@ class ChangeLanguage extends StatefulWidget {
 
 class _ChangeLanguageState extends State<ChangeLanguage> {
    String? language;
+
+   void _changeLanguage(String languageCode , LocaleModel localModel) async {
+     Locale _locale = await setLocale(languageCode);
+     MyApp.setLocale(context , _locale);
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -54,10 +61,10 @@ class _ChangeLanguageState extends State<ChangeLanguage> {
                Checkbox(
                    checkColor: Colors.white,
                    activeColor: Colors.blue,
-                   value: selectedLocale == "en",
+                   value: selectedLocale == ENGLISH,
                    onChanged: (val) {
                      setState(() {
-                      language ="en";
+                      selectedLocale = ENGLISH;
                      });
                    }),
                Text(
@@ -77,10 +84,10 @@ class _ChangeLanguageState extends State<ChangeLanguage> {
                Checkbox(
                    checkColor: Colors.white,
                    activeColor: Colors.blue,
-                   value: selectedLocale == "ar" ,
+                   value: selectedLocale == ARABIC ,
                    onChanged: (val) {
                      setState(() {
-                      language = "ar";
+                      selectedLocale = ARABIC;
                      });
                    }),
                Text(
@@ -97,10 +104,7 @@ class _ChangeLanguageState extends State<ChangeLanguage> {
            ),
            CustomButton(
              onTap: () {
-               if(language !=null && language != selectedLocale){
-                 localeModel.set(Locale(language!));
-
-               }
+                _changeLanguage(selectedLocale , localeModel);
              },
              text: S.of(context).Save,
            )

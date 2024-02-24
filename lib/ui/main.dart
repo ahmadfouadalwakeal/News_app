@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../di/Locator.dart';
 import '../generated/l10n.dart';
+import '../local/LanguageConstants.dart';
 import '../local/local.dart';
 import 'package:provider/provider.dart';
 
@@ -17,8 +18,34 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  static void setLocale(BuildContext context, Locale newLocale) {
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    state?.setLocale(newLocale);
+  }
+    @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Locale _locale = Locale(ENGLISH);
+
+  setLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
+  @override
+  void didChangeDependencies() {
+    getLocale().then((locale) {
+      setState(() {
+        this._locale = locale;
+      });
+    });
+    super.didChangeDependencies();
+  }
 
   // This widget is the root of your application.
   @override
@@ -32,7 +59,7 @@ class MyApp extends StatelessWidget {
                     BlocProvider<AuthBloc>(create: (BuildContext context) => AuthBloc()),
                   ],
                   child: MaterialApp(
-                    locale: localeModel.locale,
+                    locale: _locale,
                     localizationsDelegates: [
                       S.delegate,
                       GlobalCupertinoLocalizations.delegate,
