@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:ixtask/ui/Bloc_Auth/auth_bloc.dart';
+import 'package:ixtask/ui/Bloc_News/news_bloc.dart';
 import 'package:ixtask/ui/screens/splash_screen/SplashScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthBloc>(create: (BuildContext context) => AuthBloc()),
+        BlocProvider<NewsBloc>(create: (BuildContext context) => NewsBloc()),
       ],
       child: MaterialApp(
         locale: Locale('en'),
