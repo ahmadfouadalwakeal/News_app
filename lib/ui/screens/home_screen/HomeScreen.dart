@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
       return true;
     }, builder: (context, state) {
-      if (state is LoadedState) {
+      if (state is LoadingNewsState) {
         return Center(
           child: CircularProgressIndicator(),
         );
@@ -56,19 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
       }
       return InfoWidget(builder: (context, deviceInfo) {
         return Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.blue,
-            automaticallyImplyLeading: false,
-            title: Text(
-              S.of(context).Home,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-          ),
+          resizeToAvoidBottomInset: false,
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
