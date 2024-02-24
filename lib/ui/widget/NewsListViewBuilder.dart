@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/news/models/ActicleModel.dart';
-import '../screens/home_screen/api/services/News_service.dart';
+import '../../api/ApiManager.dart';
 import 'News_List_view.dart';
 
 class NewsListViewBuilder extends StatefulWidget {
@@ -19,9 +19,8 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
   var future;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    future =NewsService(Dio()).getNews(category: widget.catgegory,);
+    future =ApiManager().getNews(category: widget.catgegory,);
   }
   @override
   Widget build(BuildContext context) {
