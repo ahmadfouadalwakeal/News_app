@@ -1,1 +1,15 @@
-{}
+{
+  "Login": "Login",
+  "Email": "Email",
+  "Password": "Password",
+  "RememberMe": "RememberMe",
+  "titlelanguage":"Change Language",
+  "English": "English",
+  "Arabic": "Arabic",
+  "Save": "Save",
+  "Search": "Search",
+  "Language": "Language",
+  "Home": "Home Screen",
+  "textEmptyEmail": "Enter valid email ",
+  "textInvalidEmail": "Invalid email"
+}
