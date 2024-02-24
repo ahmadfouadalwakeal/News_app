@@ -7,6 +7,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../di/Locator.dart';
 import '../generated/l10n.dart';
+import '../local/local.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,25 +23,38 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<AuthBloc>(create: (BuildContext context) => AuthBloc()),
-      ],
-      child: MaterialApp(
-        locale: Locale('en'),
-        localizationsDelegates: [
-          S.delegate,
-          GlobalCupertinoLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-        ],
-        supportedLocales: S.delegate.supportedLocales,
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          brightness: Brightness.dark,
+    return ChangeNotifierProvider(
+        create: (context) => LocaleModel(),
+        child: Consumer<LocaleModel>(
+            builder: (context, localeModel, child) =>
+                MultiBlocProvider(
+                  providers: [
+                    BlocProvider<AuthBloc>(create: (BuildContext context) => AuthBloc()),
+                  ],
+                  child: MaterialApp(
+                    locale: localeModel.locale,
+                    localizationsDelegates: [
+                      S.delegate,
+                      GlobalCupertinoLocalizations.delegate,
+                      GlobalMaterialLocalizations.delegate,
+                      GlobalWidgetsLocalizations.delegate,
+                    ],
+                    supportedLocales: S.delegate.supportedLocales,
+                    debugShowCheckedModeBanner: false,
+                    theme: ThemeData(
+                      brightness: Brightness.dark,
+                    ),
+                    home: SplashScreen(),
+                  ),
+                ),
+
         ),
-        home: SplashScreen(),
-      ),
-    );
+      );
+
+
+
+
+
+
   }
 }
