@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
       return true;
     }, builder: (context, state) {
-      if (state is LoadedState) {
+      if (state is LoadingNewsState) {
         return Center(
           child: CircularProgressIndicator(),
         );
@@ -56,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
       }
       return InfoWidget(builder: (context, deviceInfo) {
         return Scaffold(
+          resizeToAvoidBottomInset: false,
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
