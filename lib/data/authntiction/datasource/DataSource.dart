@@ -11,6 +11,7 @@ String _USER_STATES = "isLogin";
 abstract class DataSource {
   Future<Either<Failure,UserData>> getUserData();
   Future<Either<Failure,String>> setUserData(UserData userData);
+  Future<Either<Failure,String>> removeUser();
 }
 
 class DataSourceImpl implements DataSource {
@@ -36,5 +37,13 @@ class DataSourceImpl implements DataSource {
     prefs.setString(_PASSWORD_KEY, userData.password!);
     prefs.setBool(_USER_STATES, userData.rememberMe!);
     return Right('Success');
+  }
+
+  @override
+  Future<Either<Failure, String>> removeUser() async{
+    prefs.setString(_EMAIL_KEY, "");
+    prefs.setString(_PASSWORD_KEY, "");
+    prefs.setBool(_USER_STATES, false);
+    return Right("Removed");
   }
 }

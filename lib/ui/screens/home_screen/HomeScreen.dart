@@ -10,8 +10,8 @@ import '../../../generated/l10n.dart';
 import '../../widget/Custom_Button.dart';
 import '../../widget/Custom_textfield.dart';
 import '../../widget/News_List_view.dart';
-import '../change_language/ChangeLanguage.dart';
 import '../../../data/news/models/ActicleModel.dart';
+import '../Setting/Setting.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({

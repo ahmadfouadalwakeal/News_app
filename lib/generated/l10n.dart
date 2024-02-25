@@ -90,10 +90,10 @@ class S {
     );
   }
 
-  /// `Change Language`
+  /// `Setting`
   String get titlelanguage {
     return Intl.message(
-      'Change Language',
+      'Setting',
       name: 'titlelanguage',
       desc: '',
       args: [],
@@ -165,6 +165,16 @@ class S {
     return Intl.message(
       'Invalid email',
       name: 'textInvalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get logout {
+    return Intl.message(
+      'Logout',
+      name: 'logout',
       desc: '',
       args: [],
     );

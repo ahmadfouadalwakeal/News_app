@@ -1,15 +1,13 @@
 {
   "Login": "تسجيل الدخول",
   "Email": "البريد الإلكتروني",
-  "Password":"كلمة المرور",
+  "Password": "كلمة المرور",
   "RememberMe": "تذكرنى",
-  "titlelanguage":"تغيير اللغة",
+  "titlelanguage": "الاعدادات",
   "English": "إنجليزي",
   "Arabic": "عربي",
   "Save": "حفظ",
   "Search": "بحث",
   "Language": "اللغة",
-
-
-
+  "logout": "تسجيل الخروج"
 }

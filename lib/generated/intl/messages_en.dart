@@ -25,17 +25,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "Arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "Email": MessageLookupByLibrary.simpleMessage("Email"),
         "English": MessageLookupByLibrary.simpleMessage("English"),
-        "Home": MessageLookupByLibrary.simpleMessage("Home Screen"),
         "Language": MessageLookupByLibrary.simpleMessage("Language"),
         "Login": MessageLookupByLibrary.simpleMessage("Login"),
         "Password": MessageLookupByLibrary.simpleMessage("Password"),
         "RememberMe": MessageLookupByLibrary.simpleMessage("RememberMe"),
         "Save": MessageLookupByLibrary.simpleMessage("Save"),
         "Search": MessageLookupByLibrary.simpleMessage("Search"),
+        "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "textEmptyEmail":
             MessageLookupByLibrary.simpleMessage("Enter valid email "),
         "textInvalidEmail":
             MessageLookupByLibrary.simpleMessage("Invalid email"),
-        "titlelanguage": MessageLookupByLibrary.simpleMessage("Change Language")
+        "titlelanguage": MessageLookupByLibrary.simpleMessage("Setting")
       };
 }
