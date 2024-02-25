@@ -12,6 +12,7 @@ import '../data/authntiction/datasource/DataSource.dart';
 import '../data/authntiction/repositories/AuthRepositoryImpl.dart';
 import '../domain/repositories/AuthRepository.dart';
 import '../domain/usecase/LoginUseCase.dart';
+import '../domain/usecase/LogoutUseCase.dart';
 
 GetIt sl = GetIt.instance;
 
@@ -51,6 +52,7 @@ void _repositories() {
 
 void _useCase() {
   sl.registerLazySingleton(() => LoginUseCase(sl()));
+  sl.registerLazySingleton(() => LogoutUseCase(sl()));
   sl.registerLazySingleton(() => GetUserUseCase(sl()));
   sl.registerLazySingleton(() => GetNewsUseCase(sl()));
   sl.registerLazySingleton(() => NewsSearchUseCase(sl()));

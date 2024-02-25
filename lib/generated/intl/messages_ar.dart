@@ -25,13 +25,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "Arabic": MessageLookupByLibrary.simpleMessage("عربي"),
         "Email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "English": MessageLookupByLibrary.simpleMessage("إنجليزي"),
-        "Home": MessageLookupByLibrary.simpleMessage("الشاشة الرئيسية"),
         "Language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "Login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "Password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "RememberMe": MessageLookupByLibrary.simpleMessage("تذكرنى"),
         "Save": MessageLookupByLibrary.simpleMessage("حفظ"),
         "Search": MessageLookupByLibrary.simpleMessage("بحث"),
-        "titlelanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة")
+        "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "titlelanguage": MessageLookupByLibrary.simpleMessage("الاعدادات")
       };
 }

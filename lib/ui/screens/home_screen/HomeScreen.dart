@@ -10,8 +10,8 @@ import '../../../generated/l10n.dart';
 import '../../widget/Custom_Button.dart';
 import '../../widget/Custom_textfield.dart';
 import '../../widget/News_List_view.dart';
-import '../change_language/ChangeLanguage.dart';
 import '../../../data/news/models/ActicleModel.dart';
+import '../Setting/Setting.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({
@@ -56,19 +56,6 @@ class _HomeScreenState extends State<HomeScreen> {
       }
       return InfoWidget(builder: (context, deviceInfo) {
         return Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.blue,
-            automaticallyImplyLeading: false,
-            title: Text(
-              S.of(context).Home,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-          ),
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0),

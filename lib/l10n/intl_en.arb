@@ -3,12 +3,13 @@
   "Email": "Email",
   "Password": "Password",
   "RememberMe": "RememberMe",
-  "titlelanguage":"Change Language",
+  "titlelanguage":"Setting",
   "English": "English",
   "Arabic": "Arabic",
   "Save": "Save",
   "Search": "Search",
   "Language": "Language",
   "textEmptyEmail": "Enter valid email ",
-  "textInvalidEmail": "Invalid email"
+  "textInvalidEmail": "Invalid email",
+  "logout": "Logout"
 }

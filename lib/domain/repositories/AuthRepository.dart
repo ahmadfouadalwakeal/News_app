@@ -6,5 +6,9 @@ import '../../data/authntiction/models/UserData.dart';
 abstract class AuthRepository {
   Future<Either<Failure, String>> login(UserData userData);
 
+  Future<Either<Failure, String>> logout();
+
   Future<Either<Failure, UserData>> fetchUserData();
+
+
 }

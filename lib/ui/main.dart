@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:ixtask/ui/Bloc_Auth/auth_bloc.dart';
+import 'package:ixtask/ui/Bloc_News/news_bloc.dart';
 import 'package:ixtask/ui/screens/splash_screen/SplashScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -50,38 +51,28 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-        create: (context) => LocaleModel(),
-        child: Consumer<LocaleModel>(
-            builder: (context, localeModel, child) =>
-                MultiBlocProvider(
-                  providers: [
-                    BlocProvider<AuthBloc>(create: (BuildContext context) => AuthBloc()),
-                  ],
-                  child: MaterialApp(
-                    locale: _locale,
-                    localizationsDelegates: [
-                      S.delegate,
-                      GlobalCupertinoLocalizations.delegate,
-                      GlobalMaterialLocalizations.delegate,
-                      GlobalWidgetsLocalizations.delegate,
-                    ],
-                    supportedLocales: S.delegate.supportedLocales,
-                    debugShowCheckedModeBanner: false,
-                    theme: ThemeData(
-                      brightness: Brightness.dark,
-                    ),
-                    home: SplashScreen(),
-                  ),
+    return MultiBlocProvider(
+              providers: [
+                BlocProvider<AuthBloc>(create: (BuildContext context) => AuthBloc()),
+                BlocProvider<NewsBloc>(create: (BuildContext context) => NewsBloc()),
+
+              ],
+              child: MaterialApp(
+                locale: _locale,
+                localizationsDelegates: [
+                  S.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                ],
+                supportedLocales: S.delegate.supportedLocales,
+                debugShowCheckedModeBanner: false,
+                theme: ThemeData(
+                  brightness: Brightness.dark,
                 ),
-
-        ),
-      );
-
-
-
-
-
+                home: const SplashScreen(),
+              ),
+            );
 
   }
 }
