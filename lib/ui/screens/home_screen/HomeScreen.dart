@@ -30,20 +30,12 @@ class _HomeScreenState extends State<HomeScreen> {
     BlocProvider.of<NewsBloc>(context).add(NewsListStarted("general"));
   }
   void _search(String query){
-    if(query.trim().length >=2) {
-      BlocProvider.of<NewsBloc>(context).add(NewsListSearch(query));
-    }
+      BlocProvider.of<NewsBloc>(context).add(NewsListSearch(query.trim()));
   }
   TextEditingController inputController = new TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NewsBloc, NewsState>(buildWhen: (previousState, state) {
-      // if (state is LogedState) {
-      //   Navigator.push(
-      //       context, MaterialPageRoute(builder: (context) => HomeScreen()));
-      // }
-
       return true;
     }, builder: (context, state) {
       if (state is LoadingNewsState) {

@@ -24,6 +24,9 @@ class NewsRepositoryImpl implements NewsRepository {
 
   @override
   Future<List<ArticleModel>> search({required String query}) async {
+    if (query.isEmpty) {
+      return articlesList;
+    }
     return articlesList
         .where((element) =>
             element.title.toLowerCase().contains(query.toLowerCase()))
